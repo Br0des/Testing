@@ -9,7 +9,6 @@
     --bg: #0B1B3A;
     --ink: #F3F5F9;
     --ink-soft: #A9B7D1;
-    --ink-faint: #6B7A96;
     --accent: #E3B873;
     --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
@@ -18,8 +17,8 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: linear-gradient(160deg, #0B1B3A 0%, #1B3B6E 50%, #2C5A94 100%);
-    background-size: 150% 150%;
+    background: linear-gradient(180deg, #0B1B3A 0%, #1B3B6E 50%, #2C5A94 100%);
+    background-size: 100% 150%;
     animation: drift 20s ease-in-out infinite alternate;
     color: var(--ink);
     font-family: var(--font-sans);
@@ -31,8 +30,13 @@
   }
 
   @keyframes drift {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
+    0% { background-position: 50% 0%; }
+    100% { background-position: 50% 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body { animation: none; }
+    .profile > *, .links a { animation: none; opacity: 1; transform: none; filter: none; }
   }
 
   /* --- OPENING ANIMATION --- */
@@ -75,11 +79,6 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    body { animation: none; }
-    .profile > *, .links a, .disclaimer { animation: none; opacity: 1; transform: none; filter: none; }
-  }
-
   .profile {
     max-width: 560px;
     width: 100%;
@@ -91,7 +90,7 @@
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink-soft);
     margin-bottom: 8px;
   }
 
@@ -145,28 +144,6 @@
     transform: translateY(-1px) scale(0.97);
     box-shadow: 0 4px 12px -6px rgba(227, 184, 115, 0.3);
   }
-
-  /* --- DISCLAIMER --- */
-  .disclaimer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 14px 16px;
-    text-align: center;
-    font-size: 11px;
-    font-family: var(--font-mono);
-    letter-spacing: 0.05em;
-    color: var(--ink-faint);
-    pointer-events: none;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 1.2s;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
 </style>
 </head>
 <body>
@@ -180,10 +157,8 @@
       <a href="https://www.youtube.com/@BR0DES-1" target="_blank" rel="noopener noreferrer">YouTube</a>
       <a href="https://www.tiktok.com/@brodesvr" target="_blank" rel="noopener noreferrer">TikTok</a>
       <a href="https://mail.brodes.net" target="_blank" rel="noopener noreferrer">Mail</a>
-      <a href="https://games.brodes.net">Games</a>
+      <a href="games.html">Games</a>
     </div>
   </div>
-
-  <footer class="disclaimer">This website was created with the help of AI.</footer>
 </body>
 </html>
